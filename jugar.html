@@ -1,0 +1,147 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jugando: El Guardián de la Cumbre | Pantalla Completa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-deep: #070f1c;
+      --cyan: #38bdf8;
+      --snow: #f8fafc;
+      --border-dark: #03070d;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Chakra Petch', sans-serif;
+      background-color: var(--bg-deep);
+      color: var(--snow);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* Barra superior fija */
+    header {
+      background: #0b1628;
+      border-bottom: 4px solid var(--cyan);
+      padding: 0.7rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      flex-shrink: 0;
+    }
+
+    .left-group {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .title {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.85rem;
+      color: var(--cyan);
+    }
+
+    .quick-keys {
+      font-size: 0.9rem;
+      color: #cbd5e1;
+    }
+
+    .quick-keys span {
+      background: #070f1c;
+      border: 1px solid var(--cyan);
+      padding: 0.15rem 0.45rem;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.6rem;
+      color: var(--snow);
+      margin: 0 0.15rem;
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 0.8rem;
+    }
+
+    .btn-nav {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.6rem 1rem;
+      border: 2px solid var(--cyan);
+      box-shadow: 3px 3px 0 var(--border-dark);
+      cursor: pointer;
+    }
+
+    .btn-back {
+      background: var(--cyan);
+      color: #06101f;
+    }
+
+    .btn-back:hover {
+      background: #7dd3fc;
+    }
+
+    .btn-trailer {
+      background: #183052;
+      color: var(--snow);
+    }
+
+    .btn-trailer:hover {
+      background: #234678;
+    }
+
+    /* Contenedor total del juego */
+    .viewport-game {
+      flex: 1;
+      width: 100%;
+      background: #000;
+      position: relative;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="left-group">
+      <div class="title">EL GUARDIAN DE LA CUMBRE</div>
+      <div class="quick-keys">
+        Mover: <span>A</span><span>D</span> | Saltar: <span>ESPACIO</span> | Disparar: <span>CLIC</span> / <span>J</span> | Pausa: <span>ESC</span>
+      </div>
+    </div>
+    <div class="nav-buttons">
+      <a href="index.html#trailer" class="btn-nav btn-trailer">Ver Trailer</a>
+      <a href="index.html" class="btn-nav btn-back">Volver al Portal</a>
+    </div>
+  </header>
+
+  <div class="viewport-game">
+    <iframe src="juego/index.html" title="El Guardian de la Cumbre - Modo Expandido" allowfullscreen></iframe>
+  </div>
+
+</body>
+</html>
