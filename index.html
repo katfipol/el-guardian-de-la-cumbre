@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>El Guardián de la Cumbre | Portal Oficial</title>
+  <title>El Guardián de la Cumbre — Portal Oficial</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-deep: #091322;
-      --bg-panel: #11223b;
-      --bg-panel-alt: #183052;
-      --cyan: #38bdf8;
-      --cyan-dark: #0284c7;
-      --snow: #f8fafc;
-      --ice-muted: #94a3b8;
-      --orange: #f97316;
-      --red-alert: #ef4444;
-      --border-light: #38bdf8;
-      --border-dark: #050b14;
+      --bg-base: #0c1a2e;
+      --bg-surface: #152946;
+      --bg-elevated: #1c365c;
+      --accent-cyan: #38bdf8;
+      --accent-ice: #7dd3fc;
+      --accent-danger: #ef4444;
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #8da4c2;
+      --line-subtle: rgba(125, 211, 252, 0.18);
+      --border-pixel: #38bdf8;
     }
 
     * {
@@ -33,381 +33,440 @@
     }
 
     body {
-      font-family: 'Chakra Petch', sans-serif;
-      background-color: var(--bg-deep);
-      color: var(--snow);
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      font-size: 16px;
       line-height: 1.6;
-      background-image:
-        linear-gradient(rgba(56, 189, 248, 0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(56, 189, 248, 0.04) 1px, transparent 1px);
-      background-size: 24px 24px;
+      background-color: var(--bg-base);
+      color: var(--text-primary);
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* Tipografía Pixel Art */
-    .pixel-font {
-      font-family: 'Press Start 2P', monospace;
-      line-height: 1.4;
+    .font-pixel {
+      font-family: 'Silkscreen', monospace;
+      letter-spacing: -0.02em;
     }
 
-    /* Marcos estilo Pixel / Retro */
-    .pixel-box {
-      background: var(--bg-panel);
-      border: 4px solid var(--border-light);
-      box-shadow:
-        inset -4px -4px 0px #091526,
-        inset 4px 4px 0px #224473,
-        6px 6px 0px var(--border-dark);
-    }
-
-    /* Navegación superior */
+    /* Navegación superior limpia */
     header {
       position: sticky;
       top: 0;
-      z-index: 100;
-      background: #070f1c;
-      border-bottom: 4px solid var(--cyan);
-      box-shadow: 0 4px 0 var(--border-dark);
+      z-index: 50;
+      background: rgba(12, 26, 46, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line-subtle);
     }
 
-    .nav-container {
-      max-width: 1240px;
+    .nav-inner {
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 1rem 1.5rem;
+      padding: 0.95rem 1.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
       gap: 1rem;
     }
 
-    .brand {
-      font-size: 0.9rem;
-      color: var(--cyan);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-    }
-
-    nav a {
-      color: var(--snow);
-      text-decoration: none;
+    .site-title {
+      font-size: 1rem;
       font-weight: 700;
-      font-size: 0.95rem;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      padding: 0.25rem 0.4rem;
-      border-bottom: 2px solid transparent;
-      transition: color 0.15s, border-color 0.15s;
-    }
-
-    nav a:hover {
-      color: var(--cyan);
-      border-bottom-color: var(--cyan);
-    }
-
-    /* Botones Pixel Art */
-    .btn-pixel {
-      display: inline-block;
-      font-family: 'Press Start 2P', monospace;
-      font-size: 0.78rem;
-      text-transform: uppercase;
+      color: var(--accent-ice);
       text-decoration: none;
-      padding: 0.9rem 1.4rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: color 180ms ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--accent-cyan);
+      outline: none;
+    }
+
+    /* Botones con carácter pixel-editorial */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1.4rem;
+      font-family: 'Silkscreen', monospace;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-decoration: none;
       cursor: pointer;
-      border: 3px solid var(--snow);
-      transition: transform 0.1s;
+      transition: transform 160ms ease, background-color 180ms ease, box-shadow 180ms ease;
     }
 
-    .btn-pixel:active {
-      transform: translate(3px, 3px);
+    .btn:focus-visible {
+      outline: 2px solid var(--text-primary);
+      outline-offset: 3px;
     }
 
-    .btn-cyan {
-      background: var(--cyan);
-      color: #06101f;
-      border-color: #bae6fd;
-      box-shadow: 4px 4px 0px var(--border-dark);
+    .btn-primary {
+      background-color: var(--accent-cyan);
+      color: #071324;
+      border: 2px solid #bae6fd;
+      box-shadow: 0 4px 0 #0369a1;
     }
 
-    .btn-cyan:hover {
-      background: #7dd3fc;
+    .btn-primary:hover {
+      background-color: var(--accent-ice);
+      transform: translateY(-2px);
     }
 
-    .btn-dark {
-      background: var(--bg-panel-alt);
-      color: var(--snow);
-      border-color: var(--cyan);
-      box-shadow: 4px 4px 0px var(--border-dark);
+    .btn-primary:active {
+      transform: translateY(1px);
+      box-shadow: 0 1px 0 #0369a1;
     }
 
-    .btn-dark:hover {
-      background: #234678;
+    .btn-outline {
+      background-color: var(--bg-surface);
+      color: var(--text-primary);
+      border: 2px solid var(--border-pixel);
+      box-shadow: 0 4px 0 #081220;
     }
 
-    /* Contenedor Principal */
-    main {
-      max-width: 1240px;
+    .btn-outline:hover {
+      background-color: var(--bg-elevated);
+      transform: translateY(-2px);
+    }
+
+    /* Hero Editorial con Arte Principal */
+    .hero {
+      position: relative;
+      border-bottom: 1px solid var(--line-subtle);
+      background:
+        linear-gradient(180deg, rgba(12, 26, 46, 0.72) 0%, rgba(12, 26, 46, 0.94) 85%, var(--bg-base) 100%),
+        url('assets/escenario.jpg') center/cover no-repeat;
+    }
+
+    .hero-inner {
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 2rem 1.5rem 4rem;
+      padding: 4.5rem 1.5rem 4rem;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 3rem;
+      align-items: center;
     }
 
-    /* Hero / Encabezado del juego */
-    .hero-banner {
-      padding: 2.5rem 2rem;
-      margin-bottom: 3rem;
-      text-align: center;
-      background: linear-gradient(180deg, #162e52 0%, #0d1b30 100%);
-    }
-
-    .hero-tag {
-      display: inline-block;
-      background: #070f1c;
-      color: var(--cyan);
-      border: 2px solid var(--cyan);
-      padding: 0.35rem 0.8rem;
+    .hero-meta {
       font-size: 0.85rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 1.2rem;
+      letter-spacing: 0.08em;
+      color: var(--accent-cyan);
+      margin-bottom: 0.75rem;
     }
 
-    h1 {
-      font-size: clamp(1.4rem, 3.5vw, 2.4rem);
-      color: var(--snow);
-      text-shadow: 4px 4px 0px #050b14;
-      margin-bottom: 1.2rem;
+    .hero h1 {
+      font-size: clamp(2rem, 4.2vw, 3.1rem);
+      line-height: 1.12;
+      color: var(--text-primary);
+      margin-bottom: 1.25rem;
+      text-shadow: 0 3px 0 #071324;
     }
 
-    .hero-desc {
-      max-width: 820px;
-      margin: 0 auto 1.8rem;
-      font-size: 1.15rem;
-      color: #cbd5e1;
+    .hero-lead {
+      font-size: 1.08rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      max-width: 58ch;
     }
 
-    .hero-authors {
+    .authors-line {
       font-size: 0.95rem;
-      color: var(--cyan);
-      font-weight: 700;
-      margin-bottom: 1.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+      color: var(--text-muted);
+      padding-left: 0.9rem;
+      border-left: 3px solid var(--accent-cyan);
+      margin-bottom: 2rem;
+    }
+
+    .authors-line strong {
+      color: var(--text-primary);
     }
 
     .hero-actions {
       display: flex;
-      justify-content: center;
-      gap: 1.2rem;
-      flex-wrap: wrap;
-    }
-
-    /* Títulos de sección */
-    .section-block {
-      margin-bottom: 3.5rem;
-    }
-
-    .section-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
       flex-wrap: wrap;
       gap: 1rem;
-      margin-bottom: 1.2rem;
-      border-bottom: 3px solid #1e3a63;
-      padding-bottom: 0.6rem;
     }
 
-    .section-header h2 {
-      font-size: 1.15rem;
-      color: var(--cyan);
-      text-shadow: 2px 2px 0px #050b14;
+    .hero-art {
+      border: 3px solid var(--border-pixel);
+      box-shadow: 0 14px 32px rgba(4, 10, 20, 0.65);
+      background: var(--bg-surface);
+      overflow: hidden;
     }
 
-    .section-header span {
-      color: var(--ice-muted);
-      font-size: 0.95rem;
-      font-weight: 600;
+    .hero-art img {
+      width: 100%;
+      height: auto;
+      display: block;
+      image-rendering: pixelated;
     }
 
-    /* Sección 1: Tráiler Grande */
-    .trailer-stage {
-      padding: 1rem;
-      background: #070f1c;
+    /* Secciones estructurales */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
     }
 
-    .trailer-stage video {
+    section.band {
+      padding: 4.5rem 0;
+      border-bottom: 1px solid var(--line-subtle);
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .section-head h2 {
+      font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+      color: var(--text-primary);
+    }
+
+    .section-head p {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+    }
+
+    /* 1. Tráiler Protagonista */
+    .trailer-frame {
+      background: #060e1a;
+      border: 3px solid var(--border-pixel);
+      box-shadow: 0 16px 40px rgba(3, 8, 17, 0.7);
+    }
+
+    .trailer-frame video {
       width: 100%;
       max-height: 680px;
       display: block;
       background: #000;
-      border: 3px solid #1e3a63;
     }
 
-    .trailer-caption {
+    .media-bar {
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
       gap: 1rem;
-      padding-top: 0.9rem;
-      color: #cbd5e1;
-      font-size: 0.95rem;
+      padding: 0.9rem 1.25rem;
+      background: var(--bg-surface);
+      border-top: 1px solid var(--line-subtle);
+      font-size: 0.92rem;
+      color: var(--text-secondary);
     }
 
-    /* Sección 2: Juego WebGL */
-    .game-stage {
-      padding: 1rem;
-      background: #070f1c;
+    /* 2. Juego WebGL */
+    .game-frame {
+      background: #060e1a;
+      border: 3px solid var(--border-pixel);
+      box-shadow: 0 16px 40px rgba(3, 8, 17, 0.7);
     }
 
-    .iframe-frame {
+    .aspect-16-9 {
       position: relative;
       width: 100%;
       aspect-ratio: 16 / 9;
       background: #000;
-      border: 3px solid #1e3a63;
     }
 
-    .iframe-frame iframe {
+    .aspect-16-9 iframe {
+      position: absolute;
+      inset: 0;
       width: 100%;
       height: 100%;
       border: none;
-      display: block;
     }
 
-    .game-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-      padding-top: 1rem;
-    }
-
-    .game-hint {
-      color: var(--ice-muted);
-      font-size: 0.95rem;
-    }
-
-    /* Panel de Controles */
-    .controls-strip {
+    /* Tabla limpia de controles (sin tarjetas repetitivas) */
+    .controls-row {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 1rem;
-      margin-top: 1.2rem;
+      grid-template-columns: repeat(4, 1fr);
+      margin-top: 1.75rem;
+      border-top: 1px solid var(--line-subtle);
+      border-bottom: 1px solid var(--line-subtle);
     }
 
-    .key-box {
-      background: var(--bg-panel);
-      border: 3px solid #26497a;
-      padding: 1rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
+    .control-cell {
+      padding: 1.15rem 1rem;
+      border-right: 1px solid var(--line-subtle);
     }
 
-    .key-box .action-name {
-      color: var(--cyan);
-      font-weight: 700;
-      text-transform: uppercase;
-      font-size: 0.9rem;
+    .control-cell:last-child {
+      border-right: none;
     }
 
-    .key-cap {
+    .control-label {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 0.45rem;
+    }
+
+    kbd {
       display: inline-block;
-      background: #070f1c;
-      border: 2px solid var(--cyan);
-      color: var(--snow);
-      padding: 0.2rem 0.55rem;
-      font-family: 'Press Start 2P', monospace;
-      font-size: 0.65rem;
+      font-family: 'Silkscreen', monospace;
+      font-size: 0.78rem;
+      color: var(--accent-ice);
+      background: var(--bg-surface);
+      border: 1px solid var(--border-pixel);
+      padding: 0.2rem 0.5rem;
       margin-right: 0.25rem;
     }
 
-    /* Fichas técnicas de diseño (no genéricas) */
-    .lore-grid {
+    /* 3. Galería de estados y arquitectura del nivel */
+    .showcase-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: start;
     }
 
-    .lore-card {
-      padding: 1.5rem;
+    .state-figure {
+      border: 2px solid var(--line-subtle);
+      background: var(--bg-surface);
     }
 
-    .lore-card h3 {
-      font-size: 0.9rem;
-      color: var(--cyan);
-      margin-bottom: 1rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 2px solid #26497a;
-    }
-
-    .lore-list {
-      list-style: none;
-    }
-
-    .lore-list li {
-      margin-bottom: 0.85rem;
-      padding-left: 1rem;
-      border-left: 3px solid var(--cyan);
-      color: #e2e8f0;
-    }
-
-    .lore-list li.enemy-item {
-      border-left-color: var(--orange);
-    }
-
-    .lore-list strong {
-      color: var(--snow);
+    .state-figure img {
+      width: 100%;
+      height: auto;
       display: block;
+      image-rendering: pixelated;
     }
 
-    /* Footer / Créditos del equipo */
+    .state-figure figcaption {
+      padding: 0.9rem 1.1rem;
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      border-top: 1px solid var(--line-subtle);
+    }
+
+    .state-figure figcaption strong {
+      color: var(--accent-ice);
+      font-family: 'Silkscreen', monospace;
+      font-size: 0.82rem;
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    .spec-list {
+      margin-top: 2.5rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--line-subtle);
+    }
+
+    .spec-item h3 {
+      font-size: 0.95rem;
+      color: var(--accent-cyan);
+      margin-bottom: 0.5rem;
+    }
+
+    .spec-item p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+    }
+
+    /* Footer */
     footer {
-      background: #060d18;
-      border-top: 4px solid var(--cyan);
-      padding: 2.5rem 1.5rem;
+      padding: 3rem 0;
+      background: #081220;
     }
 
-    .footer-inner {
-      max-width: 1240px;
-      margin: 0 auto;
+    .footer-grid {
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: flex-start;
       flex-wrap: wrap;
-      gap: 1.5rem;
+      gap: 2rem;
     }
 
-    .team-block h4 {
-      font-size: 0.85rem;
-      color: var(--cyan);
-      margin-bottom: 0.6rem;
-    }
-
-    .team-members {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--snow);
-    }
-
-    .uni-block {
-      text-align: right;
-      color: var(--ice-muted);
+    .footer-team h3 {
       font-size: 0.95rem;
+      color: var(--accent-ice);
+      margin-bottom: 0.5rem;
     }
 
-    @media (max-width: 768px) {
-      .uni-block {
+    .footer-team p {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .footer-team span {
+      display: block;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 400;
+      margin-top: 0.25rem;
+    }
+
+    .footer-academic {
+      text-align: right;
+      color: var(--text-muted);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero-inner,
+      .showcase-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .controls-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .control-cell:nth-child(2) {
+        border-right: none;
+      }
+
+      .control-cell:nth-child(1),
+      .control-cell:nth-child(2) {
+        border-bottom: 1px solid var(--line-subtle);
+      }
+
+      .spec-list {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-academic {
         text-align: left;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .nav-links {
+        display: none;
+      }
+
+      .controls-row {
+        grid-template-columns: 1fr;
+      }
+
+      .control-cell {
+        border-right: none;
+        border-bottom: 1px solid var(--line-subtle);
       }
     }
   </style>
@@ -415,157 +474,160 @@
 <body>
 
   <header>
-    <div class="nav-container">
-      <div class="brand pixel-font">EL GUARDIAN DE LA CUMBRE</div>
-      <nav>
-        <ul>
-          <li><a href="#trailer">Trailer</a></li>
-          <li><a href="#juego">Jugar</a></li>
-          <li><a href="#controles">Controles</a></li>
-          <li><a href="#universo">Cordillera y Amenazas</a></li>
-          <li><a href="#creditos">Equipo</a></li>
-        </ul>
-      </nav>
+    <div class="nav-inner">
+      <a href="#" class="site-title font-pixel">EL GUARDIÁN DE LA CUMBRE</a>
+      <ul class="nav-links">
+        <li><a href="#trailer">Tráiler</a></li>
+        <li><a href="#jugar">Jugar en Web</a></li>
+        <li><a href="#capturas">Escenarios y Estados</a></li>
+        <li><a href="#equipo">Equipo</a></li>
+      </ul>
+      <a href="jugar.html" class="btn btn-primary">Pantalla Completa</a>
     </div>
   </header>
 
   <main>
-    <!-- Encabezado Principal -->
-    <section class="hero-banner pixel-box">
-      <div class="hero-tag">Plataformas 2D Pixel Art // Motor Unity WebGL</div>
-      <h1 class="pixel-font">EL GUARDIAN DE LA CUMBRE</h1>
-      <p class="hero-desc">
-        Los cinco Cristales de Hielo Ancestrales han sido sustraidos del Altar de la Cumbre por exploradores furtivos
-        y drones termicos. Controla al Yeti protector de la cordillera, recupera cada cristal y detén el colapso
-        climatico antes de que el temporizador de la tormenta llegue a cero.
-      </p>
-      <div class="hero-authors">
-        Desarrollado por: Melani Quintela Aguilar y Jose Martin Leaño Mercado
-      </div>
-      <div class="hero-actions">
-        <a href="#trailer" class="btn-pixel btn-cyan">Ver Trailer Oficial</a>
-        <a href="#juego" class="btn-pixel btn-dark">Jugar en el Portal</a>
-        <a href="jugar.html" class="btn-pixel btn-dark">Modo Pantalla Completa</a>
+    <!-- Hero con Arte de Portada -->
+    <section class="hero">
+      <div class="hero-inner">
+        <div>
+          <p class="hero-meta">Acción y Plataformas 2D • Unity WebGL</p>
+          <h1 class="font-pixel">El Guardián de la Cumbre</h1>
+          <p class="hero-lead">
+            Exploradores furtivos y drones térmicos han sustraído los cinco Cristales de Hielo Ancestrales.
+            Recorre la cordillera nevada con el Yeti, neutraliza a los invasores con proyectiles de nieve
+            y restituye el equilibrio climático en el Altar antes de que la tormenta llegue a cero.
+          </p>
+          <p class="authors-line">
+            Proyecto desarrollado por <strong>Melani Quintela Aguilar</strong> y <strong>Jose Martin Leaño Mercado</strong>
+          </p>
+          <div class="hero-actions">
+            <a href="#trailer" class="btn btn-primary">Ver Tráiler</a>
+            <a href="#jugar" class="btn btn-outline">Jugar Aquí</a>
+          </div>
+        </div>
+
+        <figure class="hero-art">
+          <img src="assets/portada.jpg" alt="Arte principal de El Guardián de la Cumbre con el Yeti en la montaña nevada">
+        </figure>
       </div>
     </section>
 
-    <!-- 1. TRÁILER OFICIAL (GRANDE Y PRIMERO) -->
-    <section id="trailer" class="section-block">
-      <div class="section-header">
-        <h2 class="pixel-font">01. TRAILER OFICIAL</h2>
-        <span>Avance de jugabilidad y recorrido por las zonas glaciares</span>
-      </div>
+    <!-- 1. Tráiler en formato grande -->
+    <section id="trailer" class="band">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="font-pixel">Tráiler Oficial</h2>
+          <p>Demostración de mecánicas, desplazamiento en plataformas y defensa de cristales</p>
+        </div>
 
-      <div class="trailer-stage pixel-box">
-        <video controls preload="metadata">
-          <source src="trailer.mp4" type="video/mp4">
-          Tu navegador no soporta la reproduccion de video HTML5.
-        </video>
-        <div class="trailer-caption">
-          <span><strong>Secuencia de demostracion:</strong> Desplazamiento del Yeti, lanzamiento de bolas de nieve y defensa del Altar.</span>
-          <span>Duracion: 00:32 // Resolucion HD</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- 2. VIDEOJUEGO JUGABLE -->
-    <section id="juego" class="section-block">
-      <div class="section-header">
-        <h2 class="pixel-font">02. JUGAR EN LINEA</h2>
-        <span>Ejecucion directa en navegador sin instalaciones</span>
-      </div>
-
-      <div class="game-stage pixel-box">
-        <div class="iframe-frame">
-          <iframe src="juego/index.html" title="El Guardian de la Cumbre" allowfullscreen></iframe>
-        </div>
-        <div class="game-bar">
-          <span class="game-hint">Haz clic dentro del area del juego para capturar el teclado.</span>
-          <a href="jugar.html" class="btn-pixel btn-cyan">Abrir en Pantalla Completa</a>
-        </div>
-      </div>
-
-      <!-- Controles -->
-      <div id="controles" class="controls-strip">
-        <div class="key-box">
-          <span class="action-name">Desplazamiento Lateral</span>
-          <div><span class="key-cap">A</span> <span class="key-cap">D</span> o <span class="key-cap">IZQ</span> <span class="key-cap">DER</span></div>
-        </div>
-        <div class="key-box">
-          <span class="action-name">Salto sobre Nieve y Hielo</span>
-          <div><span class="key-cap">ESPACIO</span> <span class="key-cap">W</span> <span class="key-cap">ARR</span></div>
-        </div>
-        <div class="key-box">
-          <span class="action-name">Lanzar Bola de Nieve (1.2s)</span>
-          <div><span class="key-cap">CLIC IZQ</span> <span class="key-cap">J</span> <span class="key-cap">Z</span></div>
-        </div>
-        <div class="key-box">
-          <span class="action-name">Pausar / Reanudar</span>
-          <div><span class="key-cap">ESC</span> o <span class="key-cap">P</span></div>
+        <div class="trailer-frame">
+          <video controls preload="metadata" poster="assets/escenario.jpg">
+            <source src="trailer.mp4" type="video/mp4">
+            Tu navegador no soporta la reproducción de video HTML5.
+          </video>
+          <div class="media-bar">
+            <span>Secuencia capturada directamente en el motor Unity (1080p)</span>
+            <span>Duración: 00:32</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- 3. DETALLES ESPECÍFICOS DEL JUEGO -->
-    <section id="universo" class="section-block">
-      <div class="section-header">
-        <h2 class="pixel-font">03. CORDILLERA Y MECANICAS</h2>
-        <span>Estructura del nivel, personajes y reglas de partida</span>
-      </div>
-
-      <div class="lore-grid">
-        <div class="lore-card pixel-box">
-          <h3 class="pixel-font">TRES TRAMOS DE ASCENSO</h3>
-          <ul class="lore-list">
-            <li>
-              <strong>Zona 1: Base del Bosque Nevado</strong>
-              Terreno abierto entre pinos nevados para dominar el salto, recoger el primer Cristal Ancestral y probar los proyectiles de nieve.
-            </li>
-            <li>
-              <strong>Zona 2: Cueva de Hielo Subterranea</strong>
-              Plataformas sobre precipicios con superficies de baja friccion que exigen calcular el frenado y esquivar estalactitas.
-            </li>
-            <li>
-              <strong>Zona 3: Cumbre Ventosa y Altar</strong>
-              Tramo final de alta dificultad donde se restituyen los 5 Cristales antes de que expire el contador de 05:00.
-            </li>
-          </ul>
+    <!-- 2. Juego WebGL incrustado -->
+    <section id="jugar" class="band">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="font-pixel">Jugar en el Navegador</h2>
+          <p>Haz clic dentro del lienzo para activar el teclado</p>
         </div>
 
-        <div class="lore-card pixel-box">
-          <h3 class="pixel-font">GUARDIAN E INVASORES</h3>
-          <ul class="lore-list">
-            <li>
-              <strong>El Yeti (Protagonista)</strong>
-              Cuenta con 3 Corazones de Hielo, invulnerabilidad temporal de 1.5 segundos tras recibir impacto y recuperacion mediante Bayas Heladas.
-            </li>
-            <li class="enemy-item">
-              <strong>Explorador Furtivo (Enemigo Terrestre)</strong>
-              Patrulla plataformas y activa persecucion acelerada al detectar al Yeti mediante linea de vision frontal. Resiste 2 impactos.
-            </li>
-            <li class="enemy-item">
-              <strong>Dron Termico (Enemigo Aereo)</strong>
-              Vigila zonas elevadas con desplazamiento vertical y dispara cargas termicas. Neutralizable con 1 bola de nieve.
-            </li>
-          </ul>
+        <div class="game-frame">
+          <div class="aspect-16-9">
+            <iframe src="juego/index.html" title="El Guardián de la Cumbre — Juego WebGL" allowfullscreen></iframe>
+          </div>
+          <div class="media-bar">
+            <span>Compilación WebGL • Resolución nativa 16:9</span>
+            <a href="jugar.html" class="btn btn-primary">Abrir en Pantalla Completa</a>
+          </div>
+        </div>
+
+        <div class="controls-row">
+          <div class="control-cell">
+            <span class="control-label">Desplazamiento lateral</span>
+            <kbd>A</kbd> <kbd>D</kbd> / <kbd>◀</kbd> <kbd>▶</kbd>
+          </div>
+          <div class="control-cell">
+            <span class="control-label">Salto en plataforma</span>
+            <kbd>ESPACIO</kbd> / <kbd>W</kbd>
+          </div>
+          <div class="control-cell">
+            <span class="control-label">Bola de nieve (1.2s)</span>
+            <kbd>CLIC IZQ</kbd> / <kbd>J</kbd>
+          </div>
+          <div class="control-cell">
+            <span class="control-label">Pausar partida</span>
+            <kbd>ESC</kbd> / <kbd>P</kbd>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Capturas de Estados y Tramos de la Cordillera -->
+    <section id="capturas" class="band">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="font-pixel">Condiciones de Partida y Entorno</h2>
+          <p>Arte pixel art y flujo de resolución en el Altar de la Cumbre</p>
+        </div>
+
+        <div class="showcase-grid">
+          <figure class="state-figure">
+            <img src="assets/victoria.jpg" alt="Pantalla de Victoria tras reunir los 5 cristales en el Altar">
+            <figcaption>
+              <strong>Victoria en el Altar</strong>
+              Restitución de los 5 Cristales Ancestrales antes de que expire el contador de 05:00 de la tormenta térmica.
+            </figcaption>
+          </figure>
+
+          <figure class="state-figure">
+            <img src="assets/derrota.jpg" alt="Pantalla de Derrota en la cordillera">
+            <figcaption>
+              <strong>Derrota en la Cordillera</strong>
+              Se activa al perder los 3 Corazones de Hielo frente a invasores o al agotarse el tiempo límite.
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="spec-list">
+          <div class="spec-item">
+            <h3 class="font-pixel">01. Bosque Nevado</h3>
+            <p>Zona inicial de exploración entre pinos nevados para dominar el salto y enfrentar a los primeros Exploradores Furtivos.</p>
+          </div>
+          <div class="spec-item">
+            <h3 class="font-pixel">02. Cueva de Hielo</h3>
+            <p>Tramo subterráneo con superficies de baja fricción, estalactitas y vigilancia aérea de Drones Térmicos.</p>
+          </div>
+          <div class="spec-item">
+            <h3 class="font-pixel">03. Cumbre y Altar</h3>
+            <p>Ascenso final sobre precipicios custodiados donde se depositan los cinco cristales para estabilizar el clima.</p>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer id="creditos">
-    <div class="footer-inner">
-      <div class="team-block">
-        <h4 class="pixel-font">EQUIPO DE DESARROLLO</h4>
-        <div class="team-members">Melani Quintela Aguilar &amp; Jose Martin Leaño Mercado</div>
-        <div style="color: var(--ice-muted); font-size: 0.9rem; margin-top: 0.3rem;">
-          Diseño de personaje propio, programacion en C#, niveles 2D, audio e interfaz de usuario.
-        </div>
+  <footer id="equipo">
+    <div class="container footer-grid">
+      <div class="footer-team">
+        <h3 class="font-pixel">Equipo de Desarrollo</h3>
+        <p>Melani Quintela Aguilar &amp; Jose Martin Leaño Mercado</p>
+        <span>Diseño de personaje propio, programación en C#, niveles 2D, audio e interfaz de usuario.</span>
       </div>
-      <div class="uni-block">
+      <div class="footer-academic">
         <div><strong>Universidad Privada del Valle (UNIVALLE)</strong></div>
-        <div>Asignatura: Game Development — Paralelo "B"</div>
-        <div>Docente: Ing. Marco Antonio Avendaño Ajata • Gestion 2026</div>
+        <div>Game Development — Paralelo "B"</div>
+        <div>Docente: Ing. Marco Antonio Avendaño Ajata • Gestión 2026</div>
       </div>
     </div>
   </footer>

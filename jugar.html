@@ -1,20 +1,21 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jugando: El Guardián de la Cumbre | Pantalla Completa</title>
+  <title>El Guardián de la Cumbre — Modo Pantalla Completa</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-deep: #070f1c;
-      --cyan: #38bdf8;
-      --snow: #f8fafc;
-      --border-dark: #03070d;
+      --bg-base: #0c1a2e;
+      --bg-surface: #152946;
+      --accent-cyan: #38bdf8;
+      --accent-ice: #7dd3fc;
+      --text-primary: #f8fafc;
+      --text-muted: #94a3b8;
+      --line-subtle: rgba(125, 211, 252, 0.2);
     }
 
     * {
@@ -24,20 +25,19 @@
     }
 
     body {
-      font-family: 'Chakra Petch', sans-serif;
-      background-color: var(--bg-deep);
-      color: var(--snow);
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      background-color: var(--bg-base);
+      color: var(--text-primary);
       height: 100vh;
       display: flex;
       flex-direction: column;
       overflow: hidden;
     }
 
-    /* Barra superior fija */
     header {
-      background: #0b1628;
-      border-bottom: 4px solid var(--cyan);
-      padding: 0.7rem 1.5rem;
+      background: var(--bg-base);
+      border-bottom: 1px solid var(--line-subtle);
+      padding: 0.65rem 1.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -46,70 +46,71 @@
       flex-shrink: 0;
     }
 
-    .left-group {
+    .brand-group {
       display: flex;
       align-items: center;
       gap: 1.5rem;
       flex-wrap: wrap;
     }
 
-    .title {
-      font-family: 'Press Start 2P', monospace;
+    .brand {
+      font-family: 'Silkscreen', monospace;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--accent-ice);
+      text-decoration: none;
+    }
+
+    .controls-inline {
       font-size: 0.85rem;
-      color: var(--cyan);
+      color: var(--text-muted);
     }
 
-    .quick-keys {
-      font-size: 0.9rem;
-      color: #cbd5e1;
-    }
-
-    .quick-keys span {
-      background: #070f1c;
-      border: 1px solid var(--cyan);
-      padding: 0.15rem 0.45rem;
-      font-family: 'Press Start 2P', monospace;
-      font-size: 0.6rem;
-      color: var(--snow);
+    .controls-inline kbd {
+      font-family: 'Silkscreen', monospace;
+      font-size: 0.72rem;
+      color: var(--accent-ice);
+      background: var(--bg-surface);
+      border: 1px solid var(--accent-cyan);
+      padding: 0.12rem 0.4rem;
       margin: 0 0.15rem;
     }
 
-    .nav-buttons {
+    .actions {
       display: flex;
-      gap: 0.8rem;
+      gap: 0.75rem;
     }
 
-    .btn-nav {
-      font-family: 'Press Start 2P', monospace;
-      font-size: 0.68rem;
-      text-transform: uppercase;
+    .btn {
+      font-family: 'Silkscreen', monospace;
+      font-size: 0.78rem;
+      font-weight: 700;
       text-decoration: none;
-      padding: 0.6rem 1rem;
-      border: 2px solid var(--cyan);
-      box-shadow: 3px 3px 0 var(--border-dark);
-      cursor: pointer;
+      padding: 0.55rem 1rem;
+      transition: background-color 180ms ease, transform 150ms ease;
     }
 
-    .btn-back {
-      background: var(--cyan);
-      color: #06101f;
+    .btn-outline {
+      background: var(--bg-surface);
+      color: var(--text-primary);
+      border: 2px solid var(--accent-cyan);
     }
 
-    .btn-back:hover {
-      background: #7dd3fc;
+    .btn-outline:hover {
+      background: #1c365c;
     }
 
-    .btn-trailer {
-      background: #183052;
-      color: var(--snow);
+    .btn-primary {
+      background: var(--accent-cyan);
+      color: #071324;
+      border: 2px solid #bae6fd;
     }
 
-    .btn-trailer:hover {
-      background: #234678;
+    .btn-primary:hover {
+      background: var(--accent-ice);
     }
 
-    /* Contenedor total del juego */
-    .viewport-game {
+    .stage {
       flex: 1;
       width: 100%;
       background: #000;
@@ -127,20 +128,21 @@
 <body>
 
   <header>
-    <div class="left-group">
-      <div class="title">EL GUARDIAN DE LA CUMBRE</div>
-      <div class="quick-keys">
-        Mover: <span>A</span><span>D</span> | Saltar: <span>ESPACIO</span> | Disparar: <span>CLIC</span> / <span>J</span> | Pausa: <span>ESC</span>
+    <div class="brand-group">
+      <a href="index.html" class="brand">EL GUARDIÁN DE LA CUMBRE</a>
+      <div class="controls-inline">
+        Mover: <kbd>A</kbd><kbd>D</kbd> • Saltar: <kbd>ESPACIO</kbd> • Disparar: <kbd>CLIC</kbd> / <kbd>J</kbd> • Pausa: <kbd>ESC</kbd>
       </div>
     </div>
-    <div class="nav-buttons">
-      <a href="index.html#trailer" class="btn-nav btn-trailer">Ver Trailer</a>
-      <a href="index.html" class="btn-nav btn-back">Volver al Portal</a>
+
+    <div class="actions">
+      <a href="index.html#trailer" class="btn btn-outline">Ver Tráiler</a>
+      <a href="index.html" class="btn btn-primary">Volver al Portal</a>
     </div>
   </header>
 
-  <div class="viewport-game">
-    <iframe src="juego/index.html" title="El Guardian de la Cumbre - Modo Expandido" allowfullscreen></iframe>
+  <div class="stage">
+    <iframe src="juego/index.html" title="El Guardián de la Cumbre — Pantalla Completa" allowfullscreen></iframe>
   </div>
 
 </body>
